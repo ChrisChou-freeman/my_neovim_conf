@@ -1,5 +1,5 @@
 vim.g.mapleader = ','
-vim.o.background = 'light'
+vim.o.background = 'dark'
 vim.o.clipboard = 'unnamedplus'
 vim.o.shiftwidth = 2
 vim.o.tabstop = 2
