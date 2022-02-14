@@ -2,6 +2,7 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function()
+	-- manage packer it self
 	use 'wbthomason/packer.nvim'
 	-- ide plugs
 	use 'neovim/nvim-lspconfig'
@@ -11,7 +12,7 @@ return require('packer').startup(function()
 	use 'hrsh7th/cmp-nvim-lsp'
 	use 'saadparwaiz1/cmp_luasnip'
 	use 'L3MON4D3/LuaSnip'
-	-- diagnostics
+	-- code diagnostics
 	use 'lithammer/nvim-diagnosticls'
 	-- code style
 	use 'Vimjas/vim-python-pep8-indent'
@@ -35,12 +36,16 @@ return require('packer').startup(function()
 	use 'NLKNguyen/papercolor-theme'
 	-- start screen
 	use 'glepnir/dashboard-nvim'
-	use 'liuchengxu/vim-clap'
-	-- other
+	-- use 'liuchengxu/vim-clap'
+	use {
+		'nvim-telescope/telescope.nvim',
+		requires = { {'nvim-lua/plenary.nvim'} }
+	}
+	-- other useful
 	use 'jiangmiao/auto-pairs'
 	use 'tpope/vim-commentary'
-	use 'dyng/ctrlsf.vim'
-	use 'ctrlpvim/ctrlp.vim'
+	-- use 'dyng/ctrlsf.vim'
+	-- use 'ctrlpvim/ctrlp.vim'
 	use 'terryma/vim-expand-region'
 end)
 

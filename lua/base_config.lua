@@ -1,4 +1,5 @@
 vim.g.mapleader = ','
+vim.g.vim_markdown_folding_disabled = 1
 vim.o.background = 'dark'
 vim.o.clipboard = 'unnamedplus'
 vim.o.shiftwidth = 2
