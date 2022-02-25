@@ -1,3 +1,10 @@
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+  augroup end
+]])
+
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
@@ -28,6 +35,8 @@ return require('packer').startup(function()
 	-- file exploer
 	use {
 		'kyazdani42/nvim-tree.lua',
+		-- -- some nvim-tree bug hapend, this commit key and value can removed untill bug fixed
+		-- commit = "3f4ed9b6c2598ab8304186486a05ae7a328b8d49",
 		requires = {
 			'kyazdani42/nvim-web-devicons', -- optional, for file icon
 		}
@@ -36,7 +45,6 @@ return require('packer').startup(function()
 	use 'NLKNguyen/papercolor-theme'
 	-- start screen
 	use 'glepnir/dashboard-nvim'
-	-- use 'liuchengxu/vim-clap'
 	use {
 		'nvim-telescope/telescope.nvim',
 		requires = { {'nvim-lua/plenary.nvim'} }
@@ -44,8 +52,6 @@ return require('packer').startup(function()
 	-- other useful
 	use 'jiangmiao/auto-pairs'
 	use 'tpope/vim-commentary'
-	-- use 'dyng/ctrlsf.vim'
-	-- use 'ctrlpvim/ctrlp.vim'
 	use 'terryma/vim-expand-region'
 end)
 

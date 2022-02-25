@@ -31,7 +31,10 @@ require'nvim-tree'.setup {
   },
   filters = {
     dotfiles = false,
-    custom = {}
+		custom = {
+			'.git',
+			'.mypy_cache'
+		}
   },
   git = {
     enable = true,
@@ -43,7 +46,7 @@ require'nvim-tree'.setup {
     height = 30,
     hide_root_folder = false,
     side = 'right',
-    auto_resize = true,
+    auto_resize = false,
     mappings = {
       custom_only = false,
       list = {}
