@@ -1,38 +1,19 @@
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained", -- Only use parsers that are maintained
-  highlight = { -- enable highlighting
-    enable = true,
-  },
   indent = {
     enable = false, -- default is disabled anyways
   }
 }
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-require'nvim-lsp-installer'.on_server_ready(function(server)
-	local opts = {}
-  if server.name == "sumneko_lua" then
-    opts = {
-			settings = {
-				Lua = {
-					diagnostics = {
-						globals = { 'vim', 'use' }
-					}
-				}
-			}
-    }
-  end
-	if server.name == "pyright" then
-		opts = {
-			settings = {
-
-			}
-		}
-	end
-	opts[capabilities] = capabilities
-  server:setup(opts)
-end)
+require("mason").setup()
+require("mason-lspconfig").setup()
+require("mason-lspconfig").setup_handlers {
+		-- The first entry (without a key) will be the default handler
+		-- and will be called for each installed server that doesn't have
+		-- a dedicated handler.
+		function (server_name) -- default handler (optional)
+				require("lspconfig")[server_name].setup {}
+		end,
+}
 
 -- nvim-cmp setup
 local luasnip = require 'luasnip'
