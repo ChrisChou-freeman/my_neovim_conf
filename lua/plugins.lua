@@ -15,7 +15,10 @@ return require('packer').startup(function()
 	use "williamboman/mason.nvim" 	
 	use "williamboman/mason-lspconfig.nvim"
 	use 'neovim/nvim-lspconfig'
-	use 'nvim-treesitter/nvim-treesitter'
+	use {
+		'nvim-treesitter/nvim-treesitter',
+		run = ':TSUpdate'
+	}
 	use 'hrsh7th/nvim-cmp'
 	use 'hrsh7th/cmp-nvim-lsp'
 	use 'saadparwaiz1/cmp_luasnip'
@@ -44,6 +47,7 @@ return require('packer').startup(function()
   }
 	-- color theme
 	use 'NLKNguyen/papercolor-theme'
+	use 'dracula/vim'
 	-- start screen
 	use 'glepnir/dashboard-nvim'
 	use {
