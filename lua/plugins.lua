@@ -23,10 +23,6 @@ return require('packer').startup(function()
 	use 'hrsh7th/cmp-nvim-lsp'
 	use 'saadparwaiz1/cmp_luasnip'
 	use 'L3MON4D3/LuaSnip'
-	-- code diagnostics
-	-- code style
-	use 'Vimjas/vim-python-pep8-indent'
-	use 'plasticboy/vim-markdown'
 	-- git
 	use 'airblade/vim-gitgutter'
 	use 'tpope/vim-fugitive'
@@ -37,14 +33,12 @@ return require('packer').startup(function()
 	}
 	-- file exploer
 	use {
-  	"nvim-neo-tree/neo-tree.nvim",
-    branch = "v2.x",
-    requires = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
-    }
-  }
+		'nvim-tree/nvim-tree.lua',
+		requires = {
+			'nvim-tree/nvim-web-devicons', -- optional, for file icons
+		},
+		tag = 'nightly' -- optional, updated every week. (see issue #1193)
+	}
 	-- color theme
 	use 'NLKNguyen/papercolor-theme'
 	use 'dracula/vim'

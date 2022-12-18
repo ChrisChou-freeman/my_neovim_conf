@@ -2,12 +2,22 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-require("neo-tree").setup({
-	close_if_last_window = false,
-	window = {
-		position = "right"
+require("nvim-tree").setup {
+	view = {
+		side = "right"
+	},
+	diagnostics = {
+		enable = true
+	},
+	update_focused_file = {
+		enable = true,
+		ignore_list = {'node_modules'},
+	},
+	filters = {
+		dotfiles = true,
+		exclude = {'.gitignore'}
 	}
-})
+}
 
 -- start screen dashboard
 local db = require('dashboard')
